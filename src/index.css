@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #0f172a;
+    --primary: #3b82f6;
+    --primary-foreground: #ffffff;
+    --secondary: #f1f5f9;
+    --secondary-foreground: #0f172a;
+    --accent: #eff6ff;
+    --accent-foreground: #1e40af;
+    --border: #e2e8f0;
+    --card: #ffffff;
+    --card-foreground: #0f172a;
+  }
+
+  [data-theme='dark'] {
+    --background: #020617;
+    --foreground: #f8fafc;
+    --primary: #3b82f6;
+    --primary-foreground: #ffffff;
+    --secondary: #1e293b;
+    --secondary-foreground: #f8fafc;
+    --accent: #0f172a;
+    --accent-foreground: #3b82f6;
+    --border: #334155;
+    --card: #0f172a;
+    --card-foreground: #f8fafc;
+  }
+
+  [data-theme='blue'] {
+    --background: #000000;
+    --foreground: #0c4a6e;
+    --primary: #0284c7;
+    --primary-foreground: #ffffff;
+    --secondary: #e0f2fe;
+    --secondary-foreground: #0369a1;
+    --accent: #bae6fd;
+    --accent-foreground: #0c4a6e;
+    --border: #7dd3fc;
+    --card: #ffffff;
+  }
+
+  [data-theme='red'] {
+    --background: #000000;
+    --foreground: #ef2020;
+    --primary: #ef2020;
+    --primary-foreground: #000000;
+    --secondary: #111111;
+    --secondary-foreground: #ef2020;
+    --accent: #222222;
+    --accent-foreground: #ef2020;
+    --border: #333333;
+    --card: #000000;
+    --card-foreground: #ffffff
+  }
+
+  [data-theme='oled'] {
+    --background: #000000;
+    --foreground: #ffffff;
+    --primary: #ffffff;
+    --primary-foreground: #000000;
+    --secondary: #111111;
+    --secondary-foreground: #ffffff;
+    --accent: #222222;
+    --accent-foreground: #ffffff;
+    --border: #333333;
+    --card: #000000;
+    --card-foreground: #ffffff;
+  }
+
+  [data-theme='custom'] {
+    /* Fallback values, will be overridden by JS */
+    --background: #ffffff;
+    --foreground: #0f172a;
+    --primary: #3b82f6;
+    --primary-foreground: #ffffff;
+    --secondary: #f1f5f9;
+    --secondary-foreground: #0f172a;
+    --accent: #eff6ff;
+    --accent-foreground: #1e40af;
+    --border: #e2e8f0;
+    --card: #ffffff;
+    --card-foreground: #0f172a;
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.card {
+  background-color: var(--card);
+  color: var(--card-foreground);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+}
+
+@keyframes slide-in {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--secondary);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  opacity: 0.8;
+  border-radius: 10px;
+  border: 2px solid var(--secondary);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+  opacity: 1;
+}
